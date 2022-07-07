@@ -81,6 +81,15 @@ M.on_attach = function(client, bufnr)
 	if client.name == "sumneko_lua" then
 		client.resolved_capabilities.document_formatting = false
 	end
+	if client.name == "rust_analyzer" then
+		vim.api.nvim_buf_set_keymap(
+			bufnr,
+			"n",
+			"<leader>lr",
+			"<cmd>lua require('rust-tools.runnables').runnables()<CR>",
+			{ noremap = true, silent = true }
+		)
+	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 	vim.notify(string.format("Lsp-Server '%s' attached to buffer.", client.name))
