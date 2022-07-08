@@ -15,21 +15,6 @@ end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
----@diagnostic disable-next-line: lowercase-global
-function leave_snippet()
-	if
-		((vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n") or vim.v.event.old_mode == "i")
-		and require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-		and not require("luasnip").session.jump_active
-	then
-		require("luasnip").unlink_current()
-	end
-end
--- stop snippets when you leave to normal mode
-vim.api.nvim_command([[
-    autocmd ModeChanged * lua leave_snippet()
-]])
-
 local check_backspace = function()
 	local col = vim.fn.col(".") - 1
 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
@@ -65,6 +50,18 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
+local function expand_snippet(fallback)
+	if luasnip.expandable() then
+		luasnip.expand()
+	elseif luasnip.expand_or_jumpable() then
+		luasnip.expand_or_jump()
+	elseif check_backspace() then
+		fallback()
+	else
+		fallback()
+	end
+end
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -79,32 +76,20 @@ cmp.setup({
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-		["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+		["<C-y>"] = cmp.mapping(
+			cmp.mapping.confirm({
+				behavior = cmp.ConfirmBehavior.Insert,
+				select = true,
+			}),
+			{ "i", "c" }
+		),
 		["<C-e>"] = cmp.mapping({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
+		["<C-l>"] = cmp.mapping(expand_snippet, { "i", "s" }),
+		["<Right>"] = cmp.mapping(expand_snippet, { "i", "s" }),
 
-		-- If no completion is selected, TAB will select the first one
-		-- If a completion IS selected, TAB will insert the selected
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				local entry = cmp.get_selected_entry()
-				if not entry then
-					cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-				else
-					cmp.confirm()
-				end
-			elseif luasnip.expandable() then
-				luasnip.expand()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			elseif check_backspace() then
-				fallback()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
 	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
