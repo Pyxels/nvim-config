@@ -22,35 +22,35 @@ ls.config.set_config({
 })
 
 ls.add_snippets(nil, {
-  -- LaTex snippets
-  tex = {
-    snip({
-      trig = "quote",
-      namr = "Quote",
-      dscr = "German style double quote",
-    }, {
-        text "\\glqq ",
-        insert(1, "quote"),
-        text "\\grqq{} ",
-        insert(0),
-      })
-  },
-
+	-- LaTex snippets
+	tex = {
+		snip({
+			trig = "quote",
+			namr = "Quote",
+			dscr = "German style double quote",
+		}, {
+			text("\\glqq "),
+			insert(1, "quote"),
+			text("\\grqq{} "),
+			insert(0),
+		}),
+	},
 })
 
 -- show inlay hint when having a choice or inserting
+-- Question and Directory are hightlight groups and fit my current color scheme
 local types = require("luasnip.util.types")
-require'luasnip'.config.setup({
+require("luasnip").config.setup({
 	ext_opts = {
 		[types.choiceNode] = {
 			active = {
-				virt_text = {{"", "#fe8019"}}
-			}
+				virt_text = { { "", "Question" } },
+			},
 		},
 		[types.insertNode] = {
 			active = {
-				virt_text = {{"", "#83a598"}}
-			}
-		}
+				virt_text = { { "", "Directory" } },
+			},
+		},
 	},
 })
