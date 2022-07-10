@@ -13,12 +13,6 @@ if not copilot_status_ok then
 	return
 end
 
-
-local check_backspace = function()
-	local col = vim.fn.col(".") - 1
-	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
-end
-
 --   פּ ﯟ   some other good icons
 local kind_icons = {
 	Text = "",
@@ -49,18 +43,6 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
-local function expand_snippet(fallback)
-	if luasnip.expandable() then
-		luasnip.expand()
-	elseif luasnip.expand_or_jumpable() then
-		luasnip.expand_or_jump()
-	elseif check_backspace() then
-		fallback()
-	else
-		fallback()
-	end
-end
-
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -86,9 +68,13 @@ cmp.setup({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
-		["<C-l>"] = cmp.mapping(expand_snippet, { "i", "s" }),
-		["<Right>"] = cmp.mapping(expand_snippet, { "i", "s" }),
-
+		["<C-l>"] = cmp.mapping(function()
+			luasnip.jump(1)
+		end, { "i", "s" }),
+		["<C-h>"] = cmp.mapping(function()
+			luasnip.jump(-1)
+		end, { "i", "s" }),
+		["<C-c>"] = cmp.mapping(require("luasnip.extras.select_choice"), { "i", "s" }),
 	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
