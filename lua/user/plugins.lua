@@ -70,6 +70,7 @@ return packer.startup(function(use)
 	-- use("lifepillar/vim-gruvbox8")
 	use("luisiacc/gruvbox-baby")
 	-- use "lunarvim/darkplus.nvim"
+	use("karb94/neoscroll.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -109,7 +110,7 @@ return packer.startup(function(use)
 			end, 100)
 		end,
 	})
-  use("zbirenbaum/copilot-cmp")
+	use("zbirenbaum/copilot-cmp")
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
