@@ -26,7 +26,5 @@ null_ls.setup({
 		formatting.latexindent,
 	},
 	-- you can reuse a shared lspconfig on_attach callback here
-	on_attach = function(client)
-		vim.notify("Null-LS attached to buffer.")
-	end,
+	on_attach = require("user.lsp.handlers").on_attach,
 })
