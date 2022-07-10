@@ -24,6 +24,9 @@ null_ls.setup({
 		-- LaTeX
 		-- diagnostics.chktex,
 		formatting.latexindent,
+
+    -- Bash / sh
+    formatting.beautysh,
 	},
 	-- you can reuse a shared lspconfig on_attach callback here
 	on_attach = require("user.lsp.handlers").on_attach,
