@@ -5,13 +5,10 @@ end
 
 local lspconfig = require("lspconfig")
 
-local servers = { "jdtls", "jsonls", "ltex", "pyright", "sumneko_lua", "tsserver" }
+lsp_installer.setup()
 
-lsp_installer.setup({
-	ensure_installed = servers,
-})
-
-for _, server in pairs(servers) do
+for _, server_table in ipairs(lsp_installer.get_installed_servers()) do
+local server = server_table.name
 	local opts = {
 		on_attach = require("user.lsp.handlers").on_attach,
 		capabilities = require("user.lsp.handlers").capabilities,
