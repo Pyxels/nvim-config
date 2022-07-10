@@ -71,6 +71,7 @@ return packer.startup(function(use)
 	use("luisiacc/gruvbox-baby")
 	-- use "lunarvim/darkplus.nvim"
 	use("karb94/neoscroll.nvim")
+  use("norcalli/nvim-colorizer.lua")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
