@@ -76,7 +76,11 @@ cmp.setup({
 		["<C-h>"] = cmp.mapping(function()
 			luasnip.jump(-1)
 		end, { "i", "s" }),
-		["<C-c>"] = cmp.mapping(select_choice, { "i", "s" }),
+		["<C-c>"] = cmp.mapping(function()
+			if luasnip.choice_active() then
+				select_choice()
+			end
+		end, { "i", "s" }),
 	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
