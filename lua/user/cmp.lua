@@ -13,6 +13,8 @@ if not copilot_status_ok then
 	return
 end
 
+local select_choice = require("luasnip.extras.select_choice")
+
 --   פּ ﯟ   some other good icons
 local kind_icons = {
 	Text = "",
@@ -74,7 +76,7 @@ cmp.setup({
 		["<C-h>"] = cmp.mapping(function()
 			luasnip.jump(-1)
 		end, { "i", "s" }),
-		["<C-c>"] = cmp.mapping(require("luasnip.extras.select_choice"), { "i", "s" }),
+		["<C-c>"] = cmp.mapping(select_choice, { "i", "s" }),
 	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
