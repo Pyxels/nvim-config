@@ -46,6 +46,26 @@ ls.add_snippets(nil, {
       text('|\\grqq{} '),
       insert(0),
     }),
+    snip({
+      trig = 'mintedcode',
+      namr = 'Minted Code',
+      dscr = 'Minted code block with listing surrounding',
+    }, {
+      text({ '\\begin{listing}[h!]', '' }),
+      text('  \\begin{minted}{'),
+      insert(1, 'language'),
+      text({ '}', '' }),
+      insert(2, 'code'),
+      text({ '', '  \\end{minted}', '' }),
+      text('  \\caption{'),
+      insert(3, 'caption'),
+      text({ '}', '' }),
+      text('  \\label{'),
+      insert(4, 'label'),
+      text({ '}', '' }),
+      text({ '\\end{listing}', '' }),
+      insert(0),
+    }),
   },
 })
 
