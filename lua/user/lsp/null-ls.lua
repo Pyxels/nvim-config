@@ -24,6 +24,7 @@ null_ls.setup({
 		-- LaTeX
 		-- diagnostics.chktex,
 		formatting.latexindent,
+    formatting.bibclean,
 
     -- Bash / sh
     formatting.beautysh,
