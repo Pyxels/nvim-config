@@ -62,7 +62,7 @@ api.nvim_create_autocmd('FileType', {
 local texGrp = api.nvim_create_augroup('TexSettings', { clear = true })
 api.nvim_create_autocmd('BufWritePost', {
   pattern = { '*.tex' },
-  command = 'silent! execute "!pdflatex -output-directory=%:p:h %:p > /dev/null 2>&1" | redraw!',
+  command = 'silent! execute "!pdflatex -shell-escape -output-directory=%:p:h %:p > /dev/null 2>&1" | redraw!',
   group = texGrp,
 })
 
