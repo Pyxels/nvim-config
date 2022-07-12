@@ -34,6 +34,18 @@ ls.add_snippets(nil, {
       text('\\grqq{} '),
       insert(0),
     }),
+    snip({
+      trig = 'inlinecode',
+      namr = 'Inline Code',
+      dscr = 'Inline code with german quotes',
+    }, {
+      text('\\glqq \\mintinline{'),
+      insert(1, 'language'),
+      text('}|'),
+      insert(2, 'code'),
+      text('|\\grqq{} '),
+      insert(0),
+    }),
   },
 })
 
