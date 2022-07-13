@@ -44,7 +44,7 @@ ls.add_snippets(nil, {
         namr = 'Inline Code',
         dscr = 'Inline code with german quotes',
       },
-      fmt([[ \qlqq \mintinline{<>}|<>|\grqq{} <> ]], {
+      fmt([[ \glqq \mintinline{<>}|<>|\grqq{} <> ]], {
         choice(1, { text('Dockerfile'), insert(1, 'language') }),
         insert(2, 'code'),
         insert(0),
