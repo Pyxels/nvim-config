@@ -60,7 +60,7 @@ ls.add_snippets(nil, {
         [[
 \begin{listing}[h!]
   \begin{minted}{<>}
-    <>
+<>
   \end{minted}
   \caption{<>}
   \label{<>}
