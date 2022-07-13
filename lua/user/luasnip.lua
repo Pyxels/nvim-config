@@ -7,9 +7,12 @@ local snip = ls.snippet
 local node = ls.snippet_node
 local text = ls.text_node
 local insert = ls.insert_node
+
 local func = ls.function_node
 local choice = ls.choice_node
 local dynamicn = ls.dynamic_node
+
+local fmt = require('luasnip.extras.fmt').fmt
 
 ls.config.set_config({
   history = true,
@@ -24,48 +27,54 @@ ls.config.set_config({
 ls.add_snippets(nil, {
   -- LaTex snippets
   tex = {
-    snip({
-      trig = 'quote',
-      namr = 'Quote',
-      dscr = 'German style double quote',
-    }, {
-      text('\\glqq '),
-      insert(1, 'quote'),
-      text('\\grqq{} '),
-      insert(0),
-    }),
-    snip({
-      trig = 'inlinecode',
-      namr = 'Inline Code',
-      dscr = 'Inline code with german quotes',
-    }, {
-      text('\\glqq \\mintinline{'),
-      insert(1, 'language'),
-      text('}|'),
-      insert(2, 'code'),
-      text('|\\grqq{} '),
-      insert(0),
-    }),
-    snip({
-      trig = 'mintedcode',
-      namr = 'Minted Code',
-      dscr = 'Minted code block with listing surrounding',
-    }, {
-      text({ '\\begin{listing}[h!]', '' }),
-      text('  \\begin{minted}{'),
-      insert(1, 'language'),
-      text({ '}', '' }),
-      insert(2, 'code'),
-      text({ '', '  \\end{minted}', '' }),
-      text('  \\caption{'),
-      insert(3, 'caption'),
-      text({ '}', '' }),
-      text('  \\label{'),
-      insert(4, 'label'),
-      text({ '}', '' }),
-      text({ '\\end{listing}', '' }),
-      insert(0),
-    }),
+    snip(
+      {
+        trig = 'quote',
+        namr = 'Quote',
+        dscr = 'German style double quote',
+      },
+      fmt([[ \qlqq <>\grqq{} <> ]], {
+        insert(1, 'quote'),
+        insert(0),
+      }, { delimiters = '<>' })
+    ),
+    snip(
+      {
+        trig = 'inlinecode',
+        namr = 'Inline Code',
+        dscr = 'Inline code with german quotes',
+      },
+      fmt([[ \qlqq \mintinline{<>}|<>|\grqq{} <> ]], {
+        choice(1, { text('Dockerfile'), insert(1, 'language') }),
+        insert(2, 'code'),
+        insert(0),
+      }, { delimiters = '<>' })
+    ),
+    snip(
+      {
+        trig = 'mintedcode',
+        namr = 'Minted Code',
+        dscr = 'Minted code block with listing surrounding',
+      },
+      fmt(
+        [[
+\begin{listing}[h!]
+  \begin{minted}{<>}
+    <>
+  \end{minted}
+  \caption{<>}
+  \label{<>}
+\end{listing}
+    ]],
+        {
+          choice(1, { text('Dockerfile'), insert(nil, 'language') }),
+          insert(2, 'code'),
+          insert(3, 'caption'),
+          insert(4, 'label'),
+        },
+        { delimiters = '<>' }
+      )
+    ),
   },
 })
 
