@@ -33,7 +33,7 @@ ls.add_snippets(nil, {
         namr = 'Quote',
         dscr = 'German style double quote',
       },
-      fmt([[ \qlqq <>\grqq{} <> ]], {
+      fmt([[ \glqq <>\grqq{} <> ]], {
         insert(1, 'quote'),
         insert(0),
       }, { delimiters = '<>' })
