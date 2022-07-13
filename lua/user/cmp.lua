@@ -76,6 +76,12 @@ cmp.setup({
     ['<C-h>'] = cmp.mapping(function()
       luasnip.jump(-1)
     end, { 'i', 's' }),
+    ['<A-l>'] = cmp.mapping(function()
+      luasnip.change_choice(1)
+    end, { 'i', 's' }),
+    ['<A-h>'] = cmp.mapping(function()
+      luasnip.change_choice(-1)
+    end, { 'i', 's' }),
     ['<C-c>'] = cmp.mapping(function()
       if luasnip.choice_active() then
         select_choice()
