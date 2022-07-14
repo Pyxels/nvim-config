@@ -33,7 +33,7 @@ ls.add_snippets(nil, {
         namr = 'Quote',
         dscr = 'German style double quote',
       },
-      fmt([[ \glqq <>\grqq{} <> ]], {
+      fmt([[ \glqq <>\grqq{}<>]], {
         insert(1, 'quote'),
         insert(0),
       }, { delimiters = '<>' })
@@ -44,8 +44,8 @@ ls.add_snippets(nil, {
         namr = 'Inline Code',
         dscr = 'Inline code with german quotes',
       },
-      fmt([[ \glqq \mintinline{<>}|<>|\grqq{} <> ]], {
-        choice(1, { text('Dockerfile'), insert(1, 'language') }),
+      fmt([[ \glqq \mintinline{<>}|<>|\grqq{}<>]], {
+        choice(1, { insert(nil, 'language'), text('sh'), text('Dockerfile') }),
         insert(2, 'code'),
         insert(0),
       }, { delimiters = '<>' })
@@ -65,12 +65,13 @@ ls.add_snippets(nil, {
   \caption{<>}
   \label{<>}
 \end{listing}
-    ]],
+<>]],
         {
-          choice(1, { text('Dockerfile'), insert(nil, 'language') }),
+          choice(1, { insert(nil, 'language'), text('sh'), text('Dockerfile') }),
           insert(2, 'code'),
           insert(3, 'caption'),
           insert(4, 'label'),
+          insert(0),
         },
         { delimiters = '<>' }
       )
