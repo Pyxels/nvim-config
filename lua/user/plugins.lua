@@ -70,7 +70,6 @@ return packer.startup(function(use)
   -- use("lifepillar/vim-gruvbox8")
   use('luisiacc/gruvbox-baby')
   -- use "lunarvim/darkplus.nvim"
-  use('karb94/neoscroll.nvim')
   use('norcalli/nvim-colorizer.lua')
 
   -- cmp plugins
