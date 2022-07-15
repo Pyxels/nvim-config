@@ -70,3 +70,7 @@ keymap('x', '<A-k>', ":move '<-2<CR>gv-gv", opts)
 -- Command Line --
 -- Make qw act like wq
 keymap('c', 'qw', 'wq', opts)
+
+-- Disable p (paste) in Select mode
+keymap('s', 'p', 'p', opts)
+
