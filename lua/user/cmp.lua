@@ -45,6 +45,10 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
+local custom_colors = {
+  copilot = 'CmpItemKindCopilot',
+}
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -102,6 +106,11 @@ cmp.setup({
         buffer = '[Buffer]',
         path = '[Path]',
       })[entry.source.name]
+
+      if custom_colors[entry.source.name] then
+        vim_item.kind_hl_group = custom_colors[entry.source.name]
+      end
+
       return vim_item
     end,
   },
