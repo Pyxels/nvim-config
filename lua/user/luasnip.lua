@@ -42,9 +42,9 @@ ls.add_snippets(nil, {
       {
         trig = 'inlinecode',
         namr = 'Inline Code',
-        dscr = 'Inline code with german quotes',
+        dscr = 'Inline code with german quotes (needs new command)',
       },
-      fmt([[ \glqq \mintinline{<>}|<>|\grqq{}<>]], {
+      fmt([[ \inlinecode{<>}{<>}<>]], {
         choice(1, { insert(nil, 'language'), text('sh'), text('Dockerfile') }),
         insert(2, 'code'),
         insert(0),
@@ -63,7 +63,7 @@ ls.add_snippets(nil, {
 <>
   \end{minted}
   \caption{<>}
-  \label{<>}
+  \label{lis:<>}
 \end{listing}
 <>]],
         {
@@ -71,6 +71,32 @@ ls.add_snippets(nil, {
           insert(2, 'code'),
           insert(3, 'caption'),
           insert(4, 'label'),
+          insert(0),
+        },
+        { delimiters = '<>' }
+      )
+    ),
+    snip(
+      {
+        trig = 'figure',
+        namr = 'Figure',
+        dscr = 'Figure with caption and label',
+      },
+      fmt(
+        [[
+\begin{figure}<>
+  \centering
+  \includegraphics[width=<>\textwidth]{<>}
+  \caption{<>}
+  \label{fig:<>}
+\end{figure}
+<>]],
+        {
+          choice(1, { insert(nil), node(nil, { text('['), insert(1), text(']') }) }),
+          insert(2, 'width'),
+          insert(3, 'path'),
+          insert(4, 'caption'),
+          insert(5, 'label'),
           insert(0),
         },
         { delimiters = '<>' }
