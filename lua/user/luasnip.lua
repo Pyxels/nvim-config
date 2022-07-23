@@ -112,12 +112,12 @@ require('luasnip').config.setup({
   ext_opts = {
     [types.choiceNode] = {
       active = {
-        virt_text = { { '', 'Question' } },
+        virt_text = { { '', 'GruvboxOrange' } },
       },
     },
     [types.insertNode] = {
       active = {
-        virt_text = { { '', 'Directory' } },
+        virt_text = { { '', 'GruvboxBlue' } },
       },
     },
   },
