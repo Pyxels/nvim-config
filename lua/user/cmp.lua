@@ -59,8 +59,8 @@ local custom_mapping = {
   ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
   ['<C-y>'] = cmp.mapping(
     cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = false,
     }),
     { 'i', 'c' }
   ),
