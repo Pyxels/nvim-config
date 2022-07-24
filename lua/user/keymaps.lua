@@ -19,6 +19,9 @@ vim.g.maplocalleader = ' '
 --   command_mode = "c",
 
 -- Normal --
+---------------------------
+------- Navigation --------
+---------------------------
 -- Better window navigation
 keymap('n', '<C-h>', '<C-w>h', opts)
 keymap('n', '<C-j>', '<C-w>j', opts)
@@ -43,6 +46,10 @@ keymap('n', '<A-k>', '<Esc>:m .-2<CR>==', opts)
 -- Press jk fast to enter
 keymap('i', 'jk', '<ESC>', opts)
 
+
+---------------------------
+---- Text Manipulation ----
+---------------------------
 -- Visual --
 -- Stay in indent mode
 keymap('v', '<', '<gv', opts)
@@ -67,10 +74,20 @@ keymap('x', '<A-k>', ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
--- Command Line --
+
+---------------------------
+------- Small Fixes -------
+---------------------------
 -- Make qw act like wq
 keymap('c', 'qw', 'wq', opts)
 
 -- Disable p (paste) in Select mode
 keymap('s', 'p', 'p', opts)
+
+
+---------------------------
+--------- Plugins ---------
+---------------------------
+-- Vim notify
+keymap('n', '<leader>n', '<cmd>lua vim.notify.dismiss()<cr>', opts)
 
