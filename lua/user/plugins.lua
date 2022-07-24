@@ -98,6 +98,7 @@ return packer.startup(function(use)
   use('williamboman/nvim-lsp-installer') -- simple to use language server installer
   use('tamago324/nlsp-settings.nvim') -- language server settings defined in json for
   use('jose-elias-alvarez/null-ls.nvim') -- for formatters and linters
+  use('gpanders/editorconfig.nvim') -- editorconfig for fomatting
 
   -- Github copilot
   -- use("github/copilot.vim")
