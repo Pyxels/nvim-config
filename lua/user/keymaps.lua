@@ -88,6 +88,4 @@ keymap('s', 'p', 'p', opts)
 ---------------------------
 --------- Plugins ---------
 ---------------------------
--- Vim notify
-keymap('n', '<leader>n', '<cmd>lua vim.notify.dismiss()<cr>', opts)
 
