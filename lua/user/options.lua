@@ -8,6 +8,7 @@ local options = {
   hlsearch = true, -- highlight all matches on previous search pattern
   ignorecase = true, -- ignore case in search patterns
   mouse = 'a', -- allow the mouse to be used in neovim
+  mousemodel='extend',
   pumheight = 10, -- pop up menu height
   showmode = false, -- we don't need to see things like -- INSERT -- anymore
   showtabline = 2, -- always show tabs
@@ -35,6 +36,8 @@ local options = {
   guifont = 'monospace:h17', -- the font used in graphical neovim applications
   listchars = 'tab:▷▷⋮,nbsp:␣,trail:·', -- characters to show instead of whitespace
   list = true, -- show characters defined in listchars
+  -- foldmethod = 'expr',
+  -- foldexpr = 'nvim_treesitter#foldexpr()', -- fold using treesitter
 }
 
 vim.opt.shortmess:append('c')
