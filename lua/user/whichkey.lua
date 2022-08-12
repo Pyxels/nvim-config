@@ -79,26 +79,26 @@ local opts = {
 }
 
 local mappings = {
-  ['a'] = { '<cmd>Alpha<cr>', 'Alpha' },
+  ['a'] = { '<cmd>Alpha<cr>', 'α  Alpha' },
   ['b'] = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    'Buffers',
+    '﬘  Buffers',
   },
-  ['e'] = { '<cmd>NvimTreeToggle<cr>', 'Explorer' },
-  ['r'] = { '<cmd>w!<CR>', 'Save' },
-  ['q'] = { '<cmd>q!<CR>', 'Quit' },
-  ['c'] = { '<cmd>Bdelete!<CR>', 'Close Buffer' },
-  ['h'] = { '<cmd>nohlsearch<CR>', 'No Highlight' },
+  ['e'] = { '<cmd>NvimTreeToggle<cr>', 'פּ  Explorer' },
+  ['r'] = { '<cmd>w!<CR>', '  Save' },
+  ['q'] = { '<cmd>q!<CR>', '  Quit' },
+  ['c'] = { '<cmd>Bdelete!<CR>', '  Close Buffer' },
+  ['h'] = { '<cmd>nohlsearch<CR>', 'ﭑ  No Highlight' },
   ['f'] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    'Find files',
+    '  Find files',
   },
-  ['F'] = { '<cmd>Telescope live_grep theme=ivy<cr>', 'Find Text' },
-  ['P'] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", 'Projects' },
-  ['n'] = { '<cmd>lua vim.notify.dismiss()<cr>', 'Clear Notifications' },
+  ['F'] = { '<cmd>Telescope live_grep theme=ivy<cr>', '𝚃  Find Text' },
+  ['P'] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", '  Projects' },
+  ['n'] = { '<cmd>lua vim.notify.dismiss()<cr>', '  Clear Notifications' },
 
   p = {
-    name = 'Packer',
+    name = '  Packer',
     c = { '<cmd>PackerCompile<cr>', 'Compile' },
     i = { '<cmd>PackerInstall<cr>', 'Install' },
     s = { '<cmd>PackerSync<cr>', 'Sync' },
@@ -107,7 +107,7 @@ local mappings = {
   },
 
   g = {
-    name = 'Git',
+    name = '  Git',
     g = { '<cmd>lua _LAZYGIT_TOGGLE()<CR>', 'Lazygit' },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", 'Next Hunk' },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", 'Prev Hunk' },
@@ -130,7 +130,7 @@ local mappings = {
   },
 
   l = {
-    name = 'LSP',
+    name = '力  LSP',
     a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Code Action' },
     d = {
       '<cmd>Telescope diagnostics<cr>',
@@ -157,27 +157,25 @@ local mappings = {
     s = { '<cmd>Telescope lsp_document_symbols<cr>', 'Document Symbols' },
   },
   s = {
-    name = 'Search',
-    b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
-    c = { '<cmd>Telescope colorscheme<cr>', 'Colorscheme' },
-    h = { '<cmd>Telescope help_tags<cr>', 'Find Help' },
-    M = { '<cmd>Telescope man_pages<cr>', 'Man Pages' },
-    r = { '<cmd>Telescope oldfiles<cr>', 'Open Recent File' },
-    R = { '<cmd>Telescope registers<cr>', 'Registers' },
-    k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
-    C = { '<cmd>Telescope commands<cr>', 'Commands' },
+    name = '  Search',
+    b = { '<cmd>Telescope git_branches<cr>', '  Checkout branch' },
+    c = { '<cmd>Telescope colorscheme<cr>', '  Colorscheme' },
+    h = { '<cmd>Telescope help_tags<cr>', '  Find Help' },
+    M = { '<cmd>Telescope man_pages<cr>', '  Man Pages' },
+    r = { '<cmd>Telescope oldfiles<cr>', '  Open Recent File' },
+    R = { '<cmd>Telescope registers<cr>', '  Registers' },
+    k = { '<cmd>Telescope keymaps<cr>', '  Keymaps' },
+    C = { '<cmd>Telescope commands<cr>', '  Commands' },
     i = { '<cmd>IconPickerYank alt_font symbols nerd_font emoji<cr>', '  Icon Picker'},
   },
 
   t = {
-    name = 'Terminal',
-    n = { '<cmd>lua _NODE_TOGGLE()<cr>', 'Node' },
-    u = { '<cmd>lua _NCDU_TOGGLE()<cr>', 'NCDU' },
-    t = { '<cmd>lua _HTOP_TOGGLE()<cr>', 'Htop' },
-    p = { '<cmd>lua _PYTHON_TOGGLE()<cr>', 'Python' },
-    f = { '<cmd>ToggleTerm direction=float<cr>', 'Float' },
-    h = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', 'Horizontal' },
-    v = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', 'Vertical' },
+    name = '  Terminal',
+    n = { '<cmd>lua _NODE_TOGGLE()<cr>', '  Node' },
+    p = { '<cmd>lua _PYTHON_TOGGLE()<cr>', '  Python' },
+    f = { '<cmd>ToggleTerm direction=float<cr>', '  Float' },
+    h = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', '  Horizontal' },
+    v = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', '  Vertical' },
   },
 }
 
