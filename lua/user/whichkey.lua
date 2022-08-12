@@ -166,6 +166,7 @@ local mappings = {
     R = { '<cmd>Telescope registers<cr>', 'Registers' },
     k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
     C = { '<cmd>Telescope commands<cr>', 'Commands' },
+    i = { '<cmd>IconPickerYank alt_font symbols nerd_font emoji<cr>', '  Icon Picker'},
   },
 
   t = {
