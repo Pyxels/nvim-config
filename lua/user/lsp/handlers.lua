@@ -79,7 +79,7 @@ M.on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(
       bufnr,
       'n',
-      '<leader>lr',
+      '<leader>lR',
       "<cmd>lua require('rust-tools.runnables').runnables()<CR>",
       { noremap = true, silent = true }
     )
