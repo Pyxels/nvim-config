@@ -8,11 +8,6 @@ if not snip_status_ok then
   return
 end
 
-local copilot_status_ok, copilot = pcall(require, 'copilot_cmp')
-if not copilot_status_ok then
-  return
-end
-
 local select_choice = require('luasnip.extras.select_choice')
 
 --   פּ ﯟ   some other good icons
@@ -46,7 +41,6 @@ local kind_icons = {
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
 local custom_colors = {
-  copilot = 'CmpItemKindCopilot',
 }
 
 local custom_mapping = {
@@ -94,7 +88,6 @@ local custom_formatting = {
     vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
     -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
     vim_item.menu = ({
-      copilot = '[Copilot]',
       nvim_lsp = '[LSP]',
       crates = '[Crates]',
       luasnip = '[Snippet]',
@@ -111,7 +104,6 @@ local custom_formatting = {
 }
 
 local custom_sources = {
-  { name = 'copilot' },
   { name = 'nvim_lsp' },
   { name = 'crates' },
   { name = 'luasnip' },

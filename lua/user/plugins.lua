@@ -100,19 +100,6 @@ return packer.startup(function(use)
   use('jose-elias-alvarez/null-ls.nvim') -- for formatters and linters
   use('gpanders/editorconfig.nvim') -- editorconfig for fomatting
 
-  -- Github copilot
-  -- use("github/copilot.vim")
-  use({
-    'zbirenbaum/copilot.lua',
-    event = { 'VimEnter' }, -- waits for vimenter, then initializes
-    config = function()
-      vim.defer_fn(function()
-        require('copilot').setup()
-      end, 100)
-    end,
-  })
-  use('zbirenbaum/copilot-cmp')
-
   -- Telescope
   use('nvim-telescope/telescope.nvim')
 
