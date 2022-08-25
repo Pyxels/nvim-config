@@ -40,8 +40,7 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
-local custom_colors = {
-}
+local custom_colors = {}
 
 local custom_mapping = {
   ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
@@ -54,7 +53,7 @@ local custom_mapping = {
   ['<C-y>'] = cmp.mapping(
     cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
-      select = false,
+      select = true,
     }),
     { 'i', 'c' }
   ),
