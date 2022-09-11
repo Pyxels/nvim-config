@@ -100,6 +100,7 @@ return packer.startup(function(use)
   use('jose-elias-alvarez/null-ls.nvim') -- for formatters and linters
   use('gpanders/editorconfig.nvim') -- editorconfig for fomatting
   use('elkowar/yuck.vim') -- filetype support for eww configuration language
+  use('ron-rs/ron.vim') -- filetype support for rust object notation (rom) language
 
   -- Telescope
   use('nvim-telescope/telescope.nvim')
