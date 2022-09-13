@@ -55,21 +55,21 @@ end
 
 local function lsp_keymaps()
   local keymap = vim.keymap.set
-  keymap('n', '<Leader>la', '<cmd>lua vim.lsp.buf.code_action()<cr>', {desc = 'LSP: Code Action' })
-  keymap('n', '<Leader>ld', '<cmd>Telescope diagnostics<cr>', {desc = 'LSP: Document Diagnostics', })
-  keymap('n', '<Leader>lf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', {desc = 'LSP: Format' })
-  keymap('n', '<Leader>lj', '<cmd>lua vim.diagnostic.goto_next()<CR>', {desc = 'LSP: Next Diagnostic', })
-  keymap('n', '<Leader>lk', '<cmd>lua vim.diagnostic.goto_prev()<cr>', {desc = 'LSP: Prev Diagnostic', })
-  keymap('n', '<Leader>ll', '<cmd>lua vim.lsp.codelens.run()<cr>', {desc = 'LSP: CodeLens Action' })
-  keymap('n', '<Leader>lq', "<cmd>lua vim.diagnostic.setloclist()<cr>", {desc = "Add diagnostics to quickfix list" })
-  keymap('n', '<Leader>lr', '<cmd>lua vim.lsp.buf.rename()<cr>', {desc = 'LSP: Rename' })
-  keymap('n', '<Leader>ls', '<cmd>Telescope lsp_document_symbols<cr>', {desc = 'LSP: Document Symbols' })
+  keymap('n', '<Leader>la', '<cmd>lua vim.lsp.buf.code_action()<cr>', { desc = 'LSP: Code Action' })
+  keymap('n', '<Leader>ld', '<cmd>Telescope diagnostics<cr>', { desc = 'LSP: Document Diagnostics' })
+  keymap('n', '<Leader>lf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', { desc = 'LSP: Format' })
+  keymap('n', '<Leader>lj', '<cmd>lua vim.diagnostic.goto_next()<CR>', { desc = 'LSP: Next Diagnostic' })
+  keymap('n', '<Leader>lk', '<cmd>lua vim.diagnostic.goto_prev()<cr>', { desc = 'LSP: Prev Diagnostic' })
+  keymap('n', '<Leader>ll', '<cmd>lua vim.lsp.codelens.run()<cr>', { desc = 'LSP: CodeLens Action' })
+  keymap('n', '<Leader>lq', '<cmd>lua vim.diagnostic.setloclist()<cr>', { desc = 'Add diagnostics to quickfix list' })
+  keymap('n', '<Leader>lr', '<cmd>lua vim.lsp.buf.rename()<cr>', { desc = 'LSP: Rename' })
+  keymap('n', '<Leader>ls', '<cmd>Telescope lsp_document_symbols<cr>', { desc = 'LSP: Document Symbols' })
 
-  keymap('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', {desc = 'LSP: Show definition'})
-  keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {desc = 'LSP: Hover'})
-  keymap('n', 'gi', '<cmd>Telescope lsp_implementations<CR>', {desc = 'LSP: Show implemetation'})
-  keymap('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {desc = 'LSP: Signature help'})
-  keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', {desc = 'LSP: Show references'})
+  keymap('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', { desc = 'LSP: Show definition' })
+  keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = 'LSP: Hover' })
+  keymap('n', 'gi', '<cmd>Telescope lsp_implementations<CR>', { desc = 'LSP: Show implemetation' })
+  keymap('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { desc = 'LSP: Signature help' })
+  keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', { desc = 'LSP: Show references' })
   vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format({async = true})' ]])
 end
 
@@ -78,12 +78,11 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.document_formatting = false
   end
   if client.name == 'rust_analyzer' then
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
+    vim.keymap.set(
       'n',
       '<leader>lR',
       "<cmd>lua require('rust-tools.runnables').runnables()<CR>",
-      { noremap = true, silent = true }
+      { desc = 'LSP: rust runnables' }
     )
   end
   if client.name == 'tsserver' then
