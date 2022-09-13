@@ -40,18 +40,16 @@ keymap('n', '<C-Right>', ':vertical resize -2<CR>')
 keymap('n', '<S-l>', ':bnext<CR>')
 keymap('n', '<S-h>', ':bprevious<CR>')
 
--- Move text up and down
-keymap('n', '<A-j>', '<Esc>:m .+1<CR>==')
-keymap('n', '<A-k>', '<Esc>:m .-2<CR>==')
-
--- Insert --
--- Press jk fast to enter
-keymap('i', 'jk', '<ESC>')
 
 
 ---------------------------
 ---- Text Manipulation ----
 ---------------------------
+-- Normal --
+-- Move text up and down
+keymap('n', '<A-j>', '<Esc>:m .+1<CR>==')
+keymap('n', '<A-k>', '<Esc>:m .-2<CR>==')
+
 -- Visual --
 -- Stay in indent mode
 keymap('v', '<', '<gv')
@@ -68,13 +66,6 @@ keymap('x', 'J', ":move '>+1<CR>gv-gv")
 keymap('x', 'K', ":move '<-2<CR>gv-gv")
 keymap('x', '<A-j>', ":move '>+1<CR>gv-gv")
 keymap('x', '<A-k>', ":move '<-2<CR>gv-gv")
-
--- Terminal --
--- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 
 ---------------------------
