@@ -11,6 +11,8 @@ if not config_status_ok then
   return
 end
 
+vim.keymap.set('n', '<Leader>e', '<cmd>NvimTreeToggle<cr>', { desc = 'Toggle NvimTree' })
+
 -- Replaces auto_close
 local tree_cb = nvim_tree_config.nvim_tree_callback
 vim.api.nvim_create_autocmd('BufEnter', {

@@ -3,6 +3,16 @@ if not status_ok then
   return
 end
 
+local keymap = vim.keymap.set
+
+keymap('n', '<Leader>gj', "<cmd>lua require 'gitsigns'.next_hunk()<cr>", { desc = 'Git: Next Hunk' })
+keymap('n', '<Leader>gk', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", { desc = 'Git: Prev Hunk' })
+keymap('n', '<Leader>gp', "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", { desc = 'Git: Preview Hunk' })
+keymap('n', '<Leader>gr', "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", { desc = 'Git: Reset Hunk' })
+keymap('n', '<Leader>gR', "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", { desc = 'Git: Reset Buffer' })
+keymap('n', '<Leader>gs', "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", { desc = 'Git: Stage Hunk' })
+keymap('n', '<Leader>gu', "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", { desc = 'Git: Undo Stage Hunk' })
+
 gitsigns.setup({
   signs = {
     add = { hl = 'GitSignsAdd', text = '▎', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },

@@ -53,21 +53,23 @@ local function lsp_highlight_document(client)
   illuminate.on_attach(client)
 end
 
-local function lsp_keymaps(bufnr)
-  local opts = { noremap = true, silent = true }
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>Telescope lsp_implementations<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts) -- defined in whichkey
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts) -- defined in whichkey
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts) -- defined in whichkey
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts) -- defined in whickey
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gl', '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+local function lsp_keymaps()
+  local keymap = vim.keymap.set
+  keymap('n', '<Leader>la', '<cmd>lua vim.lsp.buf.code_action()<cr>', {desc = 'LSP: Code Action' })
+  keymap('n', '<Leader>ld', '<cmd>Telescope diagnostics<cr>', {desc = 'LSP: Document Diagnostics', })
+  keymap('n', '<Leader>lf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', {desc = 'LSP: Format' })
+  keymap('n', '<Leader>lj', '<cmd>lua vim.diagnostic.goto_next()<CR>', {desc = 'LSP: Next Diagnostic', })
+  keymap('n', '<Leader>lk', '<cmd>lua vim.diagnostic.goto_prev()<cr>', {desc = 'LSP: Prev Diagnostic', })
+  keymap('n', '<Leader>ll', '<cmd>lua vim.lsp.codelens.run()<cr>', {desc = 'LSP: CodeLens Action' })
+  keymap('n', '<Leader>lq', "<cmd>lua vim.diagnostic.setloclist()<cr>", {desc = "Add diagnostics to quickfix list" })
+  keymap('n', '<Leader>lr', '<cmd>lua vim.lsp.buf.rename()<cr>', {desc = 'LSP: Rename' })
+  keymap('n', '<Leader>ls', '<cmd>Telescope lsp_document_symbols<cr>', {desc = 'LSP: Document Symbols' })
+
+  keymap('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', {desc = 'LSP: Show definition'})
+  keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {desc = 'LSP: Hover'})
+  keymap('n', 'gi', '<cmd>Telescope lsp_implementations<CR>', {desc = 'LSP: Show implemetation'})
+  keymap('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {desc = 'LSP: Signature help'})
+  keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', {desc = 'LSP: Show references'})
   vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format({async = true})' ]])
 end
 
@@ -88,7 +90,7 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.document_formatting = false
   end
 
-  lsp_keymaps(bufnr)
+  lsp_keymaps()
   lsp_highlight_document(client)
   vim.notify(string.format("Lsp-Server '%s' attached to buffer.", client.name))
 end

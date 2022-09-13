@@ -29,6 +29,8 @@ dashboard.section.buttons.val = {
   dashboard.button('q', '  Quit Neovim', ':qa<CR>'),
 }
 
+vim.keymap.set('n', '<Leader>a', '<cmd>Alpha<cr>', { desc = 'Open Alpha' })
+
 local function footer()
   -- NOTE: requires the fortune-mod package to work
   -- local handle = io.popen("fortune")

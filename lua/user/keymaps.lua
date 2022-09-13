@@ -1,8 +1,3 @@
-local opts = { noremap = true, silent = true }
-
-local term_opts = { silent = true }
-
--- Shorten function name
 local keymap = vim.keymap.set
 
 --Remap space as leader key
@@ -60,8 +55,8 @@ keymap('v', 'p', '"_dP', { desc = 'When pasting on selection keep pasted in regi
 
 -- Visual Block --
 -- Move text up and down
-keymap('x', '<A-j>', ":move '>+1<CR>gv-gv", {desc = 'Move visual block down'})
-keymap('x', '<A-k>', ":move '<-2<CR>gv-gv", {desc = 'Move visual block up'})
+keymap('x', '<A-j>', ":move '>+1<CR>gv-gv", { desc = 'Move visual block down' })
+keymap('x', '<A-k>', ":move '<-2<CR>gv-gv", { desc = 'Move visual block up' })
 
 ---------------------------
 ------- Small Fixes -------
@@ -73,6 +68,22 @@ keymap('c', 'qw', 'wq', { desc = 'When mistyping qw, use wq' })
 keymap('s', 'p', 'p', { desc = 'Disable paste in Select mode' })
 
 ---------------------------
---------- Plugins ---------
+---------- Basic ----------
 ---------------------------
 
+keymap('n', '<Leader>r', '<cmd>w!<CR>', { desc = 'Save' })
+keymap('n', '<Leader>c', '<cmd>Bdelete!<CR>', { desc = 'Close current Buffer' })
+keymap('n', '<Leader>h', '<cmd>nohlsearch<CR>', { desc = 'Remove highlights' })
+
+---------------------------
+----------- LSP -----------
+---------------------------
+-- These are needed outside the on-attach lsp function so they can be called even if no lsp server is attached
+keymap('n', '<Leader>li', '<cmd>LspInfo<cr>', { desc = 'LSP: Current Info' })
+keymap('n', '<Leader>lI', '<cmd>LspInstallInfo<cr>', { desc = 'LSP: Installer Info' })
+
+---------------------------
+--------- Plugins ---------
+---------------------------
+-- Plugins with no meaninful config of their own, but keymaps
+keymap('n', '<Leader>i', '<cmd>IconPickerYank alt_font symbols nerd_font emoji<cr>', { desc = 'Icon Picker' })

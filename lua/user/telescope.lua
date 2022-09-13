@@ -4,6 +4,31 @@ if not status_ok then
 end
 
 local actions = require('telescope.actions')
+local keymap = vim.keymap.set
+
+keymap(
+  'n',
+  '<Leader>b',
+  "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+  { desc = 'Telescope Buffers' }
+)
+keymap(
+  'n',
+  '<Leader>f',
+  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+  { desc = 'Find files' }
+)
+keymap('n', '<Leader>F', '<cmd>Telescope live_grep theme=ivy<cr>', { desc = 'Find Text' })
+keymap('n', '<Leader>P', "<cmd>lua require('telescope').extensions.projects.projects()<cr>", { desc = 'Projects' })
+
+keymap('n', '<Leader>sb','<cmd>Telescope git_branches<cr>', {desc = 'Checkout branch' })
+keymap('n', '<Leader>sC','<cmd>Telescope colorscheme<cr>', {desc = 'Colorschemes' })
+keymap('n', '<Leader>sh','<cmd>Telescope help_tags<cr>', {desc = 'Find Help' })
+keymap('n', '<Leader>sM','<cmd>Telescope man_pages<cr>', {desc = 'Search Man Pages' })
+keymap('n', '<Leader>sr','<cmd>Telescope oldfiles<cr>', {desc = 'Open Recent File' })
+keymap('n', '<Leader>sR','<cmd>Telescope registers<cr>', {desc = 'Registers' })
+keymap('n', '<Leader>sk','<cmd>Telescope keymaps<cr>', {desc = 'Keymaps' })
+keymap('n', '<Leader>sc','<cmd>Telescope commands<cr>', {desc = 'Commands' })
 
 telescope.setup({
   defaults = {

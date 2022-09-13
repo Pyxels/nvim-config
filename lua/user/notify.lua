@@ -4,6 +4,8 @@ if not status_ok then
   return
 end
 
+vim.keymap.set('n', '<Leader>n', '<cmd>lua vim.notify.dismiss()<cr>', { desc = 'Clear Notifications' })
+
 notify.setup({
   -- Animation style (see below for details)
   stages = 'fade_in_slide_out',
