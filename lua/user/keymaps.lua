@@ -3,9 +3,7 @@ local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 -- Shorten function name
-local function keymap(mode, mapping, to)
-  vim.api.nvim_set_keymap(mode, mapping, to, opts)
-end
+local keymap = vim.keymap.set
 
 --Remap space as leader key
 keymap('', '<Space>', '<Nop>')
@@ -25,58 +23,54 @@ vim.g.maplocalleader = ' '
 ---------------------------
 -- Normal --
 -- Better window navigation
-keymap('n', '<C-h>', '<C-w>h')
-keymap('n', '<C-j>', '<C-w>j')
-keymap('n', '<C-k>', '<C-w>k')
-keymap('n', '<C-l>', '<C-w>l')
+keymap('n', '<C-h>', '<C-w>h', { desc = 'Select the window to the left' })
+keymap('n', '<C-j>', '<C-w>j', { desc = 'Select the window to the bottom' })
+keymap('n', '<C-k>', '<C-w>k', { desc = 'Select the window to the top' })
+keymap('n', '<C-l>', '<C-w>l', { desc = 'Select the window to the right' })
 
 -- Resize with arrows
-keymap('n', '<C-Up>', ':resize +2<CR>')
-keymap('n', '<C-Down>', ':resize -2<CR>')
-keymap('n', '<C-Left>', ':vertical resize +2<CR>')
-keymap('n', '<C-Right>', ':vertical resize -2<CR>')
+keymap('n', '<C-Up>', ':resize +2<CR>', { desc = 'Resize +2' })
+keymap('n', '<C-Down>', ':resize -2<CR>', { desc = 'Resize -2' })
+keymap('n', '<C-Left>', ':vertical resize +2<CR>', { desc = 'Resize +2' })
+keymap('n', '<C-Right>', ':vertical resize -2<CR>', { desc = 'Resize -2' })
 
 -- Navigate buffers
-keymap('n', '<S-l>', ':bnext<CR>')
-keymap('n', '<S-h>', ':bprevious<CR>')
-
-
+keymap('n', '<S-l>', ':bnext<CR>', { desc = 'Next buffer' })
+keymap('n', '<S-h>', ':bprevious<CR>', { desc = 'Previous buffer' })
 
 ---------------------------
 ---- Text Manipulation ----
 ---------------------------
 -- Normal --
 -- Move text up and down
-keymap('n', '<A-j>', '<Esc>:m .+1<CR>==')
-keymap('n', '<A-k>', '<Esc>:m .-2<CR>==')
+keymap('n', '<A-j>', '<Esc>:m .+1<CR>==', { desc = 'Move line down' })
+keymap('n', '<A-k>', '<Esc>:m .-2<CR>==', { desc = 'Move line up' })
 
 -- Visual --
 -- Stay in indent mode
-keymap('v', '<', '<gv')
-keymap('v', '>', '>gv')
+keymap('v', '<', '<gv', { desc = 'Unindent block and stay in Visual' })
+keymap('v', '>', '>gv', { desc = 'Indent block and stay in Visual' })
 
 -- Move text up and down
-keymap('v', '<A-j>', ':m .+1<CR>==')
-keymap('v', '<A-k>', ':m .-2<CR>==')
-keymap('v', 'p', '"_dP')
+keymap('v', '<A-j>', ':m .+1<CR>==', { desc = 'Move text block up' })
+keymap('v', '<A-k>', ':m .-2<CR>==', { desc = 'Move text block down' })
+
+-- When pasting on selection keep pasted in register
+keymap('v', 'p', '"_dP', { desc = 'When pasting on selection keep pasted in register' })
 
 -- Visual Block --
 -- Move text up and down
-keymap('x', 'J', ":move '>+1<CR>gv-gv")
-keymap('x', 'K', ":move '<-2<CR>gv-gv")
-keymap('x', '<A-j>', ":move '>+1<CR>gv-gv")
-keymap('x', '<A-k>', ":move '<-2<CR>gv-gv")
-
+keymap('x', '<A-j>', ":move '>+1<CR>gv-gv", {desc = 'Move visual block down'})
+keymap('x', '<A-k>', ":move '<-2<CR>gv-gv", {desc = 'Move visual block up'})
 
 ---------------------------
 ------- Small Fixes -------
 ---------------------------
 -- Make qw act like wq
-keymap('c', 'qw', 'wq')
+keymap('c', 'qw', 'wq', { desc = 'When mistyping qw, use wq' })
 
 -- Disable p (paste) in Select mode
-keymap('s', 'p', 'p')
-
+keymap('s', 'p', 'p', { desc = 'Disable paste in Select mode' })
 
 ---------------------------
 --------- Plugins ---------
