@@ -30,12 +30,6 @@ autocmd('FileType', {
   command = 'nnoremap <silent> <buffer> q :close <CR>',
   group = generalGrp,
 })
--- Hide buffers from bufferlist
-autocmd('FileType', {
-  pattern = { 'qf' },
-  command = 'FileType qf set nobuflisted',
-  group = generalGrp,
-})
 -- Set relativenumber and line
 autocmd('WinEnter', {
   callback = function() SetRelativeAndHighlight(true) end,
