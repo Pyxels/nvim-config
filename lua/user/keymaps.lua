@@ -86,6 +86,6 @@ keymap('n', '<Leader>lI', '<cmd>LspInstallInfo<cr>', { desc = 'LSP: Installer In
 --------- Plugins ---------
 ---------------------------
 -- Plugins with no meaninful config of their own, but keymaps
-keymap('n', '<Leader>i', '<cmd>IconPickerYank alt_font symbols nerd_font emoji<cr>', { desc = 'Icon Picker' })
+keymap('n', '<Leader>si', '<cmd>IconPickerYank alt_font symbols nerd_font emoji<cr>', { desc = 'Icon Picker' })
 
 keymap('n', '<Leader>t', '<cmd>ColorizerToggle <cr>', { desc = 'Toggle colorizer' })
