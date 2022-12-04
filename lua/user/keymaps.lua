@@ -33,6 +33,9 @@ keymap('n', '<C-Right>', ':vertical resize -2<CR>', { desc = 'Resize -2' })
 keymap('n', '<S-l>', ':bnext<CR>', { desc = 'Next buffer' })
 keymap('n', '<S-h>', ':bprevious<CR>', { desc = 'Previous buffer' })
 
+keymap('n', '<C-d>', '<C-d>zz', { desc = 'Half page navigation and centering' })
+keymap('n', '<C-u>', '<C-u>zz', { desc = 'Half page navigation and centering' })
+
 ---------------------------
 ---- Text Manipulation ----
 ---------------------------
