@@ -36,6 +36,9 @@ keymap('n', '<S-h>', ':bprevious<CR>', { desc = 'Previous buffer' })
 keymap('n', '<C-d>', '<C-d>zz', { desc = 'Half page navigation and centering' })
 keymap('n', '<C-u>', '<C-u>zz', { desc = 'Half page navigation and centering' })
 
+keymap('n', 'n', 'nzz', { desc = 'Center when moving through search' })
+keymap('n', '<S-n>', '<S-n>zz', { desc = 'Center when moving through search' })
+
 ---------------------------
 ---- Text Manipulation ----
 ---------------------------
