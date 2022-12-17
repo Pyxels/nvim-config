@@ -44,15 +44,6 @@ M.setup = function()
   })
 end
 
-local function lsp_highlight_document(client)
-  -- Set autocommands conditional on server_capabilities
-  local status_ok, illuminate = pcall(require, 'illuminate')
-  if not status_ok then
-    return
-  end
-  illuminate.on_attach(client)
-end
-
 local function lsp_keymaps()
   local keymap = vim.keymap.set
   keymap('n', '<Leader>la', '<cmd>lua vim.lsp.buf.code_action()<cr>', { desc = 'LSP: Code Action' })
@@ -74,23 +65,7 @@ local function lsp_keymaps()
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == 'sumneko_lua' then
-    client.server_capabilities.document_formatting = false
-  end
-  if client.name == 'rust_analyzer' then
-    vim.keymap.set(
-      'n',
-      '<leader>lR',
-      "<cmd>lua require('rust-tools.runnables').runnables()<CR>",
-      { desc = 'LSP: rust runnables' }
-    )
-  end
-  if client.name == 'tsserver' then
-    client.server_capabilities.document_formatting = false
-  end
-
   lsp_keymaps()
-  lsp_highlight_document(client)
   vim.notify(string.format("Lsp-Server '%s' attached to buffer.", client.name))
 end
 

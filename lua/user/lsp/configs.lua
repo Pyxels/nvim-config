@@ -1,21 +1,43 @@
-local status_ok, lsp_installer = pcall(require, 'nvim-lsp-installer')
+local status_ok, mason = pcall(require, 'mason')
 if not status_ok then
   return
 end
 
-local lspconfig = require('lspconfig')
-
-lsp_installer.setup()
-
-for _, server_table in ipairs(lsp_installer.get_installed_servers()) do
-  local server = server_table.name
-  local opts = {
-    on_attach = require('user.lsp.handlers').on_attach,
-    capabilities = require('user.lsp.handlers').capabilities,
-  }
-  local has_custom_opts, server_custom_opts = pcall(require, 'user.lsp.settings.' .. server)
-  if has_custom_opts then
-    opts = vim.tbl_deep_extend('force', server_custom_opts, opts)
-  end
-  lspconfig[server].setup(opts)
+local status_ok, mason_lsp = pcall(require, 'mason-lspconfig')
+if not status_ok then
+  return
 end
+
+mason.setup()
+mason_lsp.setup()
+
+local lspconfig = require('lspconfig')
+local handler = require('user.lsp.handlers')
+
+mason_lsp.setup_handlers({
+  -- The first entry (without a key) will be the default handler
+  -- and will be called for each installed server that doesn't have
+  -- a dedicated handler.
+  function(server_name) -- default handler (optional)
+    local opts = {
+      on_attach = handler.on_attach,
+      capabilities = handler.capabilities,
+    }
+    local has_custom_opts, server_custom_opts = pcall(require, 'user.lsp.settings.' .. server_name)
+    if has_custom_opts then
+      opts = vim.tbl_deep_extend('force', server_custom_opts, opts)
+    end
+    lspconfig[server_name].setup(opts)
+  end,
+  -- Next, you can provide a dedicated handler for specific servers.
+  -- For example, a handler override for the `rust_analyzer`:
+  ['rust_analyzer'] = function()
+    require('rust-tools').setup({ server = { on_attach = handler.on_attach } })
+    vim.keymap.set(
+      'n',
+      '<leader>lR',
+      "<cmd>lua require('rust-tools.runnables').runnables()<CR>",
+      { desc = 'LSP: rust runnables' }
+    )
+  end,
+})
