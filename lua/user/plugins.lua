@@ -60,6 +60,7 @@ return packer.startup(function(use)
   use('vimwiki/vimwiki') -- Vim Wiki
   use('wakatime/vim-wakatime') -- Code time usage
   use('j-hui/fidget.nvim') -- fidget lsp progress
+  use('mbbill/undotree') -- undo tree for non linear history
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out

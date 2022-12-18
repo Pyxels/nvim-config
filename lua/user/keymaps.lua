@@ -103,3 +103,5 @@ keymap('n', '<Leader>si', '<cmd>IconPickerYank alt_font symbols nerd_font emoji<
 keymap('n', '<Leader>t', '<cmd>ColorizerToggle <cr>', { desc = 'Toggle colorizer' })
 
 keymap('n', '<Leader>z', '<cmd>ZenMode<cr>', { desc = 'Toggle [Z]en Mode' })
+
+keymap('n', '<Leader>u', '<cmd>UndotreeToggle <cr>', { desc = 'Toggle [U]ndoTree' })
