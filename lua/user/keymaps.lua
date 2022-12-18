@@ -101,3 +101,5 @@ keymap('n', '<Leader>lI', '<cmd>Mason<cr>', { desc = 'Mason' })
 keymap('n', '<Leader>si', '<cmd>IconPickerYank alt_font symbols nerd_font emoji<cr>', { desc = 'Icon Picker' })
 
 keymap('n', '<Leader>t', '<cmd>ColorizerToggle <cr>', { desc = 'Toggle colorizer' })
+
+keymap('n', '<Leader>z', '<cmd>ZenMode<cr>', { desc = 'Toggle [Z]en Mode' })
