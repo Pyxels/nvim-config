@@ -53,14 +53,6 @@ autocmd('FileType', {
   group = gitGrp,
 })
 
--- Automatically compile latex script upon saving
-local texGrp = augroup('TexSettings', { clear = true })
-autocmd('BufWritePost', {
-  pattern = { '*.tex' },
-  command = 'silent! execute "!pdflatex -shell-escape -output-directory=%:p:h %:p > /dev/null 2>&1" | redraw!',
-  group = texGrp,
-})
-
 -- Alpha
 local alphaGrp = augroup('AlphaSettings', { clear = true })
 autocmd('User', {
