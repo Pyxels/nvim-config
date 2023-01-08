@@ -70,9 +70,6 @@ return packer.startup(function(use)
   -- use "lunarvim/darkplus.nvim"
   use('norcalli/nvim-colorizer.lua')
 
-  use('folke/zen-mode.nvim') -- Zen mode with less distractions
-  use('folke/twilight.nvim') -- dimming of inactive code parts
-
   -- cmp plugins
   use('hrsh7th/nvim-cmp') -- The completion plugin
   use('hrsh7th/cmp-buffer') -- buffer completions
