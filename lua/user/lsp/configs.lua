@@ -32,7 +32,23 @@ mason_lsp.setup_handlers({
   -- Next, you can provide a dedicated handler for specific servers.
   -- For example, a handler override for the `rust_analyzer`:
   ['rust_analyzer'] = function()
-    require('rust-tools').setup({ server = { on_attach = handler.on_attach } })
+    require('rust-tools').setup({
+      server = { on_attach = handler.on_attach },
+      settings = {
+        ['rust-analyzer'] = {
+          assist = {
+            importGranularity = 'module',
+            importPrefix = 'by_self',
+          },
+          cargo = {
+            loadOutDirsFromCheck = true,
+          },
+          procMacro = {
+            enable = true,
+          },
+        },
+      },
+    })
     vim.keymap.set(
       'n',
       '<leader>lR',
