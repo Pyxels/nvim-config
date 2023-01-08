@@ -8,6 +8,9 @@ function SetRelativeAndHighlight(setTo)
     ['NvimTree'] = true,
     ['qf'] = true,
     ['alpha'] = true,
+    ['help'] = true,
+    ['undotree'] = true,
+    ['diff'] = true,
   }
 
   if exclude[vim.api.nvim_buf_get_option(bufnr, 'filetype')] then
@@ -31,12 +34,16 @@ autocmd('FileType', {
   group = generalGrp,
 })
 -- Set relativenumber and line
-autocmd('WinEnter', {
-  callback = function() SetRelativeAndHighlight(true) end,
+autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CmdlineLeave', 'WinEnter' }, {
+  callback = function()
+    SetRelativeAndHighlight(true)
+  end,
   group = generalGrp,
 })
-autocmd('WinLeave', {
-  callback = function() SetRelativeAndHighlight(false) end,
+autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEnter', 'WinLeave' }, {
+  callback = function()
+    SetRelativeAndHighlight(false)
+  end,
   group = generalGrp,
 })
 
