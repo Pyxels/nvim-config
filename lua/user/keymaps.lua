@@ -64,11 +64,10 @@ keymap('v', 'p', '"_dP', { desc = 'When pasting on selection keep pasted in regi
 keymap('x', '<A-j>', ":move '>+1<CR>gv-gv", { desc = 'Move visual block down' })
 keymap('x', '<A-k>', ":move '<-2<CR>gv-gv", { desc = 'Move visual block up' })
 
-
 -- Clipboard only with leader --
-keymap({'n', 'v'}, '<Leader>y', '"+y')
+keymap({ 'n', 'v' }, '<Leader>y', '"+y')
 keymap('n', '<Leader>Y', '"+Y')
-keymap({'n', 'v'}, '<Leader>p', '"+p')
+keymap({ 'n', 'v' }, '<Leader>p', '"+p')
 
 ---------------------------
 ------- Small Fixes -------
