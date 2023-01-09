@@ -59,6 +59,7 @@ return packer.startup(function(use)
   use('wakatime/vim-wakatime') -- Code time usage
   use('j-hui/fidget.nvim') -- fidget lsp progress
   use('mbbill/undotree') -- undo tree for non linear history
+  use('kylechui/nvim-surround') -- surround text objects with ( { " ....
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
