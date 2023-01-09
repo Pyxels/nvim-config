@@ -86,7 +86,12 @@ keymap('n', '<Leader>r', '<cmd>w!<CR>', { desc = 'Save' })
 keymap('n', '<Leader>c', '<cmd>Bdelete!<CR>', { desc = 'Close current Buffer' })
 keymap('n', '<Leader>h', '<cmd>nohlsearch<CR>', { desc = 'Remove highlights' })
 
-keymap({'n', 'i', 'v'}, '<C-t>', ':execute \'!alacritty --working-directory %:p:h &\'<CR>', {desc = 'Open [T]erminal'})
+keymap(
+  { 'n', 'i', 'v' },
+  '<C-t>',
+  ":execute '!alacritty --working-directory `git rev-parse --show-toplevel` &'<CR>",
+  { desc = 'Open [T]erminal' }
+)
 
 ---------------------------
 ----------- LSP -----------
@@ -106,4 +111,3 @@ keymap('n', '<Leader>t', '<cmd>ColorizerToggle <cr>', { desc = 'Toggle colorizer
 keymap('n', '<Leader>u', '<cmd>UndotreeToggle <cr>', { desc = 'Toggle [U]ndoTree' })
 
 keymap('n', '<Leader>z', '<cmd>NoNeckPain <cr>', { desc = 'Toggle NoNeckPain (like [Z]en mode)' })
-
