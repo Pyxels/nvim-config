@@ -45,7 +45,7 @@ return packer.startup(function(use)
   use('nvim-lua/plenary.nvim') -- Useful lua functions used in lots of plugins
   use('numToStr/Comment.nvim') -- Easily comment stuff
   use('kyazdani42/nvim-web-devicons')
-  use('kyazdani42/nvim-tree.lua')
+  use('nvim-tree/nvim-tree.lua')
   use('akinsho/bufferline.nvim')
   use('moll/vim-bbye') -- close buffers without messing up layout
   use('nvim-lualine/lualine.nvim')
