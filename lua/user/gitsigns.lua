@@ -12,6 +12,7 @@ keymap('n', '<Leader>gr', "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", { desc
 keymap('n', '<Leader>gR', "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", { desc = 'Git: Reset Buffer' })
 keymap('n', '<Leader>gs', "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", { desc = 'Git: Stage Hunk' })
 keymap('n', '<Leader>gu', "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", { desc = 'Git: Undo Stage Hunk' })
+keymap('n', '<Leader>gd', "<cmd>lua require 'gitsigns'.diffthis()<cr>", { desc = 'Git: [D]iff this buffer' })
 
 gitsigns.setup({
   signs = {
