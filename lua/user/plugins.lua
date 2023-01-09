@@ -60,6 +60,7 @@ return packer.startup(function(use)
   use('j-hui/fidget.nvim') -- fidget lsp progress
   use('mbbill/undotree') -- undo tree for non linear history
   use('kylechui/nvim-surround') -- surround text objects with ( { " ....
+  use("shortcuts/no-neck-pain.nvim")
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
