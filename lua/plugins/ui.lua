@@ -2,7 +2,7 @@ return {
 
   {
     'akinsho/bufferline.nvim',
-    event = 'VeryLazy',
+    event = 'BufReadPost',
     opts = {
       options = {
         indicator = {
@@ -26,7 +26,7 @@ return {
 
   {
     'nvim-lualine/lualine.nvim',
-    event = 'VeryLazy',
+    lazy = false,
     opts = {
       options = {
         theme = 'gruvbox',
