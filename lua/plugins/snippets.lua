@@ -1,6 +1,9 @@
 return {
+  'rafamadriz/friendly-snippets', -- a bunch of snippets to use
   {
     'L3MON4D3/LuaSnip',
+    lazy = true,
+    event = 'InsertEnter',
     dependencies = {
       'rafamadriz/friendly-snippets', -- a bunch of snippets to use
       config = function()
@@ -62,7 +65,7 @@ return {
   \caption{<>}
   \label{lis:<>}
 \end{listing}
-<>]],
+<>]]           ,
               {
                 choice(1, { insert(nil, 'language'), text('sh'), text('Dockerfile') }),
                 insert(2, 'code'),
@@ -87,7 +90,7 @@ return {
   \caption{<>}
   \label{fig:<>}
 \end{figure}
-<>]],
+<>]]           ,
               {
                 choice(1, { insert(nil), node(nil, { text('['), insert(1), text(']') }) }),
                 insert(2, 'width'),

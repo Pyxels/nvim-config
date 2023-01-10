@@ -23,10 +23,10 @@ catch /^Vim\%((\a\+)\)\=:E185/
   set background=dark
 endtry
 ]]     )
-    end
+    end,
   },
   {
     'norcalli/nvim-colorizer.lua',
-    keys = { '<Leader>t', '<cmd>ColorizerToggle <cr>', desc = '[T]oggle colorizer' },
+    keys = { { '<Leader>t', '<cmd>ColorizerToggle <cr>', desc = '[T]oggle colorizer' } },
   },
 }

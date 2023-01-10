@@ -2,11 +2,16 @@ return {
   { -- Vim Wiki
     'vimwiki/vimwiki',
     lazy = true,
+    keys = {
+      {'<Leader>ww'},
+      {'<Leader>ws'},
+    },
+    cmd = 'VimwikiIndex'
   },
 
   { -- Code time usage
     'wakatime/vim-wakatime',
-    lazy = false,
+    event = 'VeryLazy',
   },
 
   {
@@ -16,6 +21,6 @@ return {
 
   {
     'moll/vim-bbye',
-    lazy = false,
+    event = 'VeryLazy',
   }, -- close buffers without messing up layout
 }

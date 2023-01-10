@@ -2,7 +2,7 @@ return {
 
   {
     'akinsho/bufferline.nvim',
-    lazy = false,
+    event = 'VeryLazy',
     opts = {
       options = {
         indicator = {
@@ -26,6 +26,7 @@ return {
 
   {
     'nvim-lualine/lualine.nvim',
+    event = 'VeryLazy',
     opts = {
       options = {
         theme = 'gruvbox',
@@ -100,6 +101,7 @@ return {
 
   {
     'lukas-reineke/indent-blankline.nvim',
+    event = 'VeryLazy',
     opts = {
       show_current_context = true,
       use_treesitter = true,
@@ -142,7 +144,7 @@ return {
   {
     'rcarriga/nvim-notify', -- Notification popups
     lazy = false,
-    keys = { 'n', '<Leader>n', '<cmd>lua vim.notify.dismiss()<cr>', desc = 'Clear [N]otifications' },
+    keys = { { '<Leader>n', '<cmd>lua vim.notify.dismiss()<cr>', desc = 'Clear [N]otifications' } },
     config = function()
       vim.notify = require('notify')
     end,
@@ -150,7 +152,7 @@ return {
 
   {
     'stevearc/dressing.nvim', -- Overwrites vim.ui.select
-    lazy = true,
+    event = 'VeryLazy',
   },
 
   {
@@ -166,12 +168,15 @@ return {
   {
     'ziontee113/icon-picker.nvim',
     lazy = true,
-    keys = { '<Leader>si', '<cmd>IconPickerYank alt_font symbols nerd_font emoji<cr>', desc = '[S]earch [I]cons' },
+    keys = { { '<Leader>si', '<cmd>IconPickerYank alt_font symbols nerd_font emoji<cr>', desc = '[S]earch [I]cons' } },
   },
 
   {
     'goolord/alpha-nvim',
     lazy = false,
+    dependencies = {
+      'ahmedkhalf/project.nvim',
+    },
     config = function()
       local dashboard = require('alpha.themes.dashboard')
       dashboard.section.header.val = {
@@ -208,6 +213,6 @@ return {
       dashboard.opts.opts.noautocmd = true
       require('alpha').setup(dashboard.opts)
     end,
-    keys = { '<Leader>a', '<cmd>Alpha<cr>', desc = 'Open [A]lpha' },
+    keys = { { '<Leader>a', '<cmd>Alpha<cr>', desc = 'Open [A]lpha' } },
   },
 }

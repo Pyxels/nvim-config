@@ -1,13 +1,14 @@
 return {
 
-  { 'kyazdani42/nvim-web-devicons' },
+  'kyazdani42/nvim-web-devicons',
+
   {
     'nvim-tree/nvim-tree.lua',
     lazy = true,
     dependencies = {
       'kyazdani42/nvim-web-devicons',
     },
-    keys = { '<Leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle NvimTr[e]e' },
+    keys = { { '<Leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle NvimTr[e]e' } },
     opts = {
       disable_netrw = true,
       hijack_netrw = true,
@@ -46,12 +47,12 @@ return {
 
   { -- undo tree for non linear history
     'mbbill/undotree',
-    keys = { '<Leader>u', '<cmd>UndotreeToggle <cr>', desc = 'Toggle [U]ndoTree' },
+    keys = { { '<Leader>u', '<cmd>UndotreeToggle <cr>', desc = 'Toggle [U]ndoTree' } },
   },
 
   {
     'shortcuts/no-neck-pain.nvim',
-    keys = { '<Leader>z', '<cmd>NoNeckPain <cr>', desc = 'Toggle NoNeckPain (like [Z]en mode)' },
+    keys = { { '<Leader>z', '<cmd>NoNeckPain <cr>', desc = 'Toggle NoNeckPain (like [Z]en mode)' } },
     opts = {
       width = 150,
     },
@@ -91,10 +92,18 @@ return {
   {
     'ahmedkhalf/project.nvim',
     lazy = true,
+    name = 'project_nvim',
+    opts = {
+      detection_methods = {'pattern'},
+    },
   },
 
   {
     'nvim-telescope/telescope.nvim',
+    lazy = true,
+    dependencies = {
+      'ahmedkhalf/project.nvim',
+    },
     cmd = 'Telescope',
     keys = {
       {
@@ -119,17 +128,17 @@ return {
       { '<Leader>sc', '<cmd>Telescope commands<cr>', desc = '[S]earch [C]ommands' },
     },
     config = function()
-local telescope = require('telescope')
-return {
-      defaults = {
-        prompt_prefix = ' ',
-        selection_caret = ' ',
-      },
-      extensions = {
-        telescope.load_extension('notify'),
-        telescope.load_extension('projects'),
-      },
-  }
-      end,
+      local telescope = require('telescope')
+      return {
+        defaults = {
+          prompt_prefix = ' ',
+          selection_caret = ' ',
+        },
+        extensions = {
+          telescope.load_extension('notify'),
+          telescope.load_extension('projects'),
+        },
+      }
+    end,
   },
 }
