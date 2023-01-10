@@ -94,7 +94,7 @@ return {
     lazy = true,
     name = 'project_nvim',
     opts = {
-      detection_methods = {'pattern'},
+      detection_methods = { 'pattern' },
     },
   },
 

@@ -97,4 +97,3 @@ keymap(
 ----------- LSP -----------
 ---------------------------
 -- These are needed outside the on-attach lsp function so they can be called even if no lsp server is attached
-

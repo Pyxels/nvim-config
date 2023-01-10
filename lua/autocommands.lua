@@ -47,7 +47,6 @@ autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEnter', 'WinLeave' }, 
   group = generalGrp,
 })
 
-
 -- Alpha
 local alphaGrp = augroup('AlphaSettings', { clear = true })
 autocmd('User', {
@@ -65,4 +64,3 @@ autocmd('User', {
   command = 'set norelativenumber',
   group = alphaGrp,
 })
-

@@ -3,10 +3,10 @@ return {
     'vimwiki/vimwiki',
     lazy = true,
     keys = {
-      {'<Leader>ww'},
-      {'<Leader>ws'},
+      { '<Leader>ww' },
+      { '<Leader>ws' },
     },
-    cmd = 'VimwikiIndex'
+    cmd = 'VimwikiIndex',
   },
 
   { -- Code time usage
