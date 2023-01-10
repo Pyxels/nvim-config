@@ -91,11 +91,12 @@ return {
 
   {
     'ahmedkhalf/project.nvim',
-    lazy = true,
-    name = 'project_nvim',
-    opts = {
-      detection_methods = { 'pattern' },
-    },
+    lazy = false,
+    config = function()
+      require('project_nvim').setup({
+        detection_methods = { 'pattern' },
+      })
+    end,
   },
 
   {
