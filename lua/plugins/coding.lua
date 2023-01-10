@@ -4,9 +4,9 @@ return {
     lazy = true,
     opts = {},
     keys = {
-      {'ys'},
-      {'ds'},
-      {'cs'},
+      { 'ys' },
+      { 'ds' },
+      { 'cs' },
     },
   },
 
@@ -15,10 +15,10 @@ return {
     lazy = true,
     opts = {},
     keys = {
-      {'gcc'},
-      {'gbc'},
-      {'gc'},
-      {'gb'},
+      { 'gcc' },
+      { 'gbc' },
+      { 'gc', mode = 'v' },
+      { 'gb', mode = 'v' },
     },
   },
 }
