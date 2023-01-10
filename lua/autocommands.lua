@@ -47,18 +47,6 @@ autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEnter', 'WinLeave' }, 
   group = generalGrp,
 })
 
--- Git
-local gitGrp = augroup('GitSettings', { clear = true })
-autocmd('FileType', {
-  pattern = { 'gitcommit' },
-  command = 'setlocal wrap',
-  group = gitGrp,
-})
-autocmd('FileType', {
-  pattern = { 'gitcommit' },
-  command = 'setlocal spell',
-  group = gitGrp,
-})
 
 -- Alpha
 local alphaGrp = augroup('AlphaSettings', { clear = true })

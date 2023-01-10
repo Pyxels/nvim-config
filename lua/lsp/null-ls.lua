@@ -30,5 +30,5 @@ null_ls.setup({
     formatting.beautysh,
   },
   -- you can reuse a shared lspconfig on_attach callback here
-  on_attach = require('user.lsp.handlers').on_attach,
+  on_attach = require('lsp.handlers').on_attach,
 })

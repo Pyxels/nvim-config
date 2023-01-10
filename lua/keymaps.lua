@@ -97,17 +97,4 @@ keymap(
 ----------- LSP -----------
 ---------------------------
 -- These are needed outside the on-attach lsp function so they can be called even if no lsp server is attached
-keymap('n', '<Leader>li', '<cmd>LspInfo<cr>', { desc = 'LSP: Current Info' })
-keymap('n', '<Leader>lI', '<cmd>Mason<cr>', { desc = 'Mason' })
 
----------------------------
---------- Plugins ---------
----------------------------
--- Plugins with no meaninful config of their own, but keymaps
-keymap('n', '<Leader>si', '<cmd>IconPickerYank alt_font symbols nerd_font emoji<cr>', { desc = 'Icon Picker' })
-
-keymap('n', '<Leader>t', '<cmd>ColorizerToggle <cr>', { desc = 'Toggle colorizer' })
-
-keymap('n', '<Leader>u', '<cmd>UndotreeToggle <cr>', { desc = 'Toggle [U]ndoTree' })
-
-keymap('n', '<Leader>z', '<cmd>NoNeckPain <cr>', { desc = 'Toggle NoNeckPain (like [Z]en mode)' })

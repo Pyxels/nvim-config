@@ -12,7 +12,7 @@ mason.setup()
 mason_lsp.setup()
 
 local lspconfig = require('lspconfig')
-local handler = require('user.lsp.handlers')
+local handler = require('lsp.handlers')
 
 mason_lsp.setup_handlers({
   -- The first entry (without a key) will be the default handler
@@ -23,7 +23,7 @@ mason_lsp.setup_handlers({
       on_attach = handler.on_attach,
       capabilities = handler.capabilities,
     }
-    local has_custom_opts, server_custom_opts = pcall(require, 'user.lsp.settings.' .. server_name)
+    local has_custom_opts, server_custom_opts = pcall(require, 'lsp.settings.' .. server_name)
     if has_custom_opts then
       opts = vim.tbl_deep_extend('force', server_custom_opts, opts)
     end
@@ -34,20 +34,7 @@ mason_lsp.setup_handlers({
   ['rust_analyzer'] = function()
     require('rust-tools').setup({
       server = { on_attach = handler.on_attach },
-      settings = {
-        ['rust-analyzer'] = {
-          assist = {
-            importGranularity = 'module',
-            importPrefix = 'by_self',
-          },
-          cargo = {
-            loadOutDirsFromCheck = true,
-          },
-          procMacro = {
-            enable = true,
-          },
-        },
-      },
+      require('lsp.settings.rust_analyzer'),
     })
     vim.keymap.set(
       'n',
