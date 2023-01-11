@@ -2,7 +2,7 @@ return {
 
   {
     'akinsho/bufferline.nvim',
-    event = 'BufReadPost',
+    event = 'BufEnter',
     opts = {
       options = {
         indicator = {
@@ -26,10 +26,11 @@ return {
 
   {
     'nvim-lualine/lualine.nvim',
-    lazy = false,
+    event = "VeryLazy",
     opts = {
       options = {
         theme = 'gruvbox',
+        globalstatus = true,
         disabled_filetypes = { 'alpha', 'dashboard', 'NvimTree', 'Outline' },
       },
       sections = {
@@ -101,7 +102,7 @@ return {
 
   {
     'lukas-reineke/indent-blankline.nvim',
-    event = 'VeryLazy',
+    event = 'BufEnter',
     opts = {
       show_current_context = true,
       use_treesitter = true,

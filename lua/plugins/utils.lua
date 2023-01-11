@@ -21,6 +21,6 @@ return {
 
   {
     'moll/vim-bbye',
-    event = 'VeryLazy',
+    event = 'BufEnter',
   }, -- close buffers without messing up layout
 }
