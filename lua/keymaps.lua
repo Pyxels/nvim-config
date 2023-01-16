@@ -89,8 +89,8 @@ keymap('n', '<Leader>h', '<cmd>nohlsearch<CR>', { desc = 'Remove highlights' })
 keymap(
   { 'n', 'i', 'v' },
   '<C-t>',
-  ":execute '!alacritty --working-directory `git rev-parse --show-toplevel` &'<CR>",
-  { desc = 'Open [T]erminal' }
+  ":execute '!alacritty --working-directory `git rev-parse --show-toplevel || pwd` &'<CR>",
+  { desc = 'Open [T]erminal', silent = true }
 )
 
 ---------------------------
