@@ -67,6 +67,7 @@ return {
     lazy = true,
     event = 'BufRead Cargo.toml',
     dependencies = { { 'nvim-lua/plenary.nvim' } },
+    opts = {},
   },
   {
     'elkowar/yuck.vim', -- filetype support for eww configuration language
