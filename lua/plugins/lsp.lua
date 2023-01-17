@@ -77,6 +77,6 @@ return {
   {
     'ron-rs/ron.vim', -- filetype support for rust object notation (rom) language
     lazy = true,
-    event = 'BufRead *.ron',
+    event = 'BufReadPre *.ron',
   },
 }
