@@ -72,7 +72,7 @@ return {
   {
     'elkowar/yuck.vim', -- filetype support for eww configuration language
     lazy = true,
-    event = 'BufRead *.yuck',
+    event = 'BufReadPre *.yuck',
   },
   {
     'ron-rs/ron.vim', -- filetype support for rust object notation (rom) language
