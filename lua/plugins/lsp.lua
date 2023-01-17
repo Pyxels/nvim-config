@@ -65,7 +65,7 @@ return {
   { -- Crates for Rust
     'saecki/crates.nvim',
     lazy = true,
-    event = 'BufRead Cargo.toml',
+    event = 'BufReadPre Cargo.toml',
     dependencies = { { 'nvim-lua/plenary.nvim' } },
     opts = {},
   },
