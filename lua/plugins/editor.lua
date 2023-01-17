@@ -10,9 +10,12 @@ return {
     },
     keys = { { '<Leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle NvimTr[e]e' } },
     opts = {
+      actions = {
+        open_file = {
+          quit_on_open = true,
+        },
+      },
       disable_netrw = true,
-      hijack_netrw = true,
-      open_on_setup = false,
       ignore_ft_on_setup = {
         'startify',
         'dashboard',
