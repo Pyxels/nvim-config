@@ -17,7 +17,6 @@ return {
             sections = { 'error', 'warn' },
             symbols = { error = ' ', warn = ' ' },
             colored = false,
-            always_visible = true,
           },
         },
         lualine_b = {
@@ -42,26 +41,10 @@ return {
             end,
           },
           'encoding',
-          {
-            'filetype',
-            icons_enabled = true,
-            icon = nil,
-          },
+          'filetype',
         },
-        lualine_y = { {
-          'location',
-          padding = 0,
-        } },
-        lualine_z = {
-          function()
-            local current_line = vim.fn.line('.')
-            local total_lines = vim.fn.line('$')
-            local chars = { '__', '▁▁', '▂▂', '▃▃', '▄▄', '▅▅', '▆▆', '▇▇', '██' }
-            local line_ratio = current_line / total_lines
-            local index = math.ceil(line_ratio * #chars)
-            return chars[index]
-          end,
-        },
+        lualine_y = { 'location' },
+        lualine_z = { 'progress' },
       },
       tabline = {
         lualine_a = { { 'buffers', symbols = { alternate_file = '' } } },
