@@ -67,7 +67,7 @@ return {
     keys = {
       { '<Leader>gj', "<cmd>lua require 'gitsigns'.next_hunk()<cr>", desc = '[G]it: Next Hunk' },
       { '<Leader>gk', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = '[G]it: Prev Hunk' },
-      { '<Leader>gp', "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", desc = '[G]it: [P]review Hunk' },
+      { '<Leader>gp', "<cmd>lua require 'gitsigns'.preview_hunk_inline()<cr>", desc = '[G]it: [P]review Hunk' },
       { '<Leader>gr', "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = '[G]it: [R]eset Hunk' },
       { '<Leader>gR', "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = '[G]it: [R]eset Buffer' },
       { '<Leader>gs', "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", desc = '[G]it: [S]tage Hunk' },
@@ -85,7 +85,7 @@ return {
       current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
       current_line_blame_opts = {
         virt_text = true,
-        virt_text_pos = 'right_align', -- 'eol' | 'overlay' | 'right_align'
+        virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
         delay = 1000,
         ignore_whitespace = false,
       },
