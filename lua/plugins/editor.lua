@@ -54,14 +54,6 @@ return {
   },
 
   {
-    'shortcuts/no-neck-pain.nvim',
-    keys = { { '<Leader>z', '<cmd>NoNeckPain <cr>', desc = 'Toggle NoNeckPain (like [Z]en mode)' } },
-    opts = {
-      width = 150,
-    },
-  },
-
-  {
     'lewis6991/gitsigns.nvim',
     event = 'BufReadPre',
     keys = {
