@@ -84,6 +84,7 @@ keymap('s', 'p', 'p', { desc = 'Disable paste in Select mode' })
 
 keymap('n', '<Leader>r', '<cmd>w!<CR>', { desc = 'Save' })
 keymap('n', '<Leader>c', '<cmd>Bdelete!<CR>', { desc = 'Close current Buffer' })
+keymap('n', '<Leader>C', '<cmd>%bd|e#|bd#<CR>', { desc = 'Close all but current Buffer' })
 keymap('n', '<Leader>h', '<cmd>nohlsearch<CR>', { desc = 'Remove highlights' })
 
 keymap(
