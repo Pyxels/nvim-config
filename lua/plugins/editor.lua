@@ -16,11 +16,6 @@ return {
         },
       },
       disable_netrw = true,
-      ignore_ft_on_setup = {
-        'startify',
-        'dashboard',
-        'alpha',
-      },
       renderer = {
         icons = {
           glyphs = {
