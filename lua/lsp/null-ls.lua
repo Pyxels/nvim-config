@@ -18,9 +18,6 @@ null_ls.setup({
     formatting.black.with({ extra_args = { '--fast' } }),
     -- diagnostics.flake8
 
-    -- Lua
-    formatting.stylua,
-
     -- LaTeX
     -- diagnostics.chktex,
     formatting.latexindent,
