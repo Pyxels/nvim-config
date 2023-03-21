@@ -35,8 +35,6 @@ local options = {
   guifont = 'monospace:h17', -- the font used in graphical neovim applications
   listchars = 'tab:▷▷⋮,nbsp:␣,trail:·', -- characters to show instead of whitespace
   list = true, -- show characters defined in listchars
-  -- foldmethod = 'expr',
-  -- foldexpr = 'nvim_treesitter#foldexpr()', -- fold using treesitter
 }
 
 vim.opt.shortmess:append('c')
