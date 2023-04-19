@@ -1,3 +1,5 @@
+.direnv
+
 # Private Spelling dictionary and rules used by LTeX-LS
 lua/user/lsp/settings/dictionary.lua
 lua/user/lsp/settings/disabledRules.lua
