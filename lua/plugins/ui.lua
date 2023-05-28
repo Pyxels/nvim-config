@@ -1,8 +1,32 @@
 return {
 
   {
+    'akinsho/bufferline.nvim',
+    event = 'BufEnter',
+    opts = {
+      options = {
+        indicator = {
+          icon = '▎',
+          style = 'icon',
+        },
+        max_name_length = 30,
+        max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
+        tab_size = 21,
+        diagnostics = 'nvim_lsp', -- | "nvim_lsp" | "coc",
+        diagnostics_update_in_insert = true,
+        offsets = { { filetype = 'NvimTree', text = '', padding = 1 } },
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+        separator_style = 'thin', -- | "thick" | "thin" | { 'any', 'any' },
+        enforce_regular_tabs = true,
+        always_show_bufferline = true,
+      },
+    },
+  },
+
+  {
     'nvim-lualine/lualine.nvim',
-    event = 'VeryLazy',
+    event = "VeryLazy",
     opts = {
       options = {
         theme = 'gruvbox',
@@ -46,14 +70,16 @@ return {
         lualine_y = { 'location' },
         lualine_z = { 'progress' },
       },
-      tabline = {
-        lualine_a = { { 'buffers', symbols = { alternate_file = '' } } },
+      inactive_sections = {
+        lualine_a = {},
         lualine_b = {},
         lualine_c = {},
-        lualine_x = {},
+        lualine_x = { 'location' },
         lualine_y = {},
-        lualine_z = { 'tabs' },
+        lualine_z = {},
       },
+      tabline = {},
+      extensions = {},
     },
   },
 
