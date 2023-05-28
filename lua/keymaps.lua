@@ -30,8 +30,9 @@ keymap('n', '<C-Left>', ':vertical resize +2<CR>', { desc = 'Resize +2' })
 keymap('n', '<C-Right>', ':vertical resize -2<CR>', { desc = 'Resize -2' })
 
 -- Navigate buffers
-keymap('n', '<S-l>', ':bnext<CR>', { desc = 'Next buffer' })
-keymap('n', '<S-h>', ':bprevious<CR>', { desc = 'Previous buffer' })
+keymap('n', '<S-l>', ':BufferLineCycleNext<CR>', { desc = 'Next buffer' })
+keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', { desc = 'Previous buffer' })
+keymap('n', '<Leader>B', ':BufferLineTogglePin<CR>', { desc = 'Pin [B]uffer' })
 
 keymap('n', '<C-d>', '<C-d>zz', { desc = 'Half page navigation and centering' })
 keymap('n', '<C-u>', '<C-u>zz', { desc = 'Half page navigation and centering' })
