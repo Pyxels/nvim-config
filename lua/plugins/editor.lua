@@ -8,7 +8,10 @@ return {
     dependencies = {
       'kyazdani42/nvim-web-devicons',
     },
-    keys = { { '<Leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle NvimTr[e]e' } },
+    keys = {
+      { '<Leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle NvimTr[e]e' },
+      { '<Leader>E', '<cmd>NvimTreeFindFile<cr>', desc = 'Show current file in Tre[E]' },
+    },
     opts = {
       actions = {
         open_file = {
