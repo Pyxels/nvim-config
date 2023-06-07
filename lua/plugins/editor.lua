@@ -18,8 +18,12 @@ return {
           quit_on_open = true,
         },
       },
+      view = {
+        width = {},
+      },
       disable_netrw = true,
       renderer = {
+        group_empty = true,
         icons = {
           glyphs = {
             default = '',
@@ -107,7 +111,7 @@ return {
       },
       {
         '<Leader>f',
-        "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+        "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false, path_display = {'smart'}} )<cr>",
         desc = '[F]ind files',
       },
       { '<Leader>F',  '<cmd>Telescope live_grep theme=ivy<cr>',                           desc = '[F]ind Text' },
