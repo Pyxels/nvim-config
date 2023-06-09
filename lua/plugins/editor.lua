@@ -111,7 +111,7 @@ return {
       },
       {
         '<Leader>f',
-        "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false, path_display = {'smart'}} )<cr>",
+        "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false} )<cr>",
         desc = '[F]ind files',
       },
       { '<Leader>F',  '<cmd>Telescope live_grep theme=ivy<cr>',                           desc = '[F]ind Text' },
@@ -125,12 +125,13 @@ return {
       { '<Leader>sk', '<cmd>Telescope keymaps<cr>',                                       desc = '[S]earch [K]eymaps' },
       { '<Leader>sc', '<cmd>Telescope commands<cr>',                                      desc = '[S]earch [C]ommands' },
     },
-    config = function()
+    opts = function()
       local telescope = require('telescope')
       return {
         defaults = {
           prompt_prefix = ' ',
           selection_caret = ' ',
+          path_display = { 'truncate' },
         },
         extensions = {
           telescope.load_extension('notify'),
