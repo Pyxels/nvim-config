@@ -1,7 +1,6 @@
 return {
   { -- Vim Wiki
     'vimwiki/vimwiki',
-    lazy = true,
     keys = {
       { '<Leader>ww' },
       { '<Leader>ws' },
@@ -14,10 +13,7 @@ return {
     event = 'VeryLazy',
   },
 
-  {
-    'nvim-lua/plenary.nvim',
-    lazy = true,
-  }, -- Useful lua functions used in lots of plugins
+  { 'nvim-lua/plenary.nvim' }, -- Useful lua functions used in lots of plugins
 
   {
     'moll/vim-bbye',

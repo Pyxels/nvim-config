@@ -64,19 +64,16 @@ return {
 
   { -- Crates for Rust
     'saecki/crates.nvim',
-    lazy = true,
     event = 'BufReadPre Cargo.toml',
     dependencies = { { 'nvim-lua/plenary.nvim' } },
     opts = {},
   },
   {
     'elkowar/yuck.vim', -- filetype support for eww configuration language
-    lazy = true,
     event = 'BufReadPre *.yuck',
   },
   {
     'ron-rs/ron.vim', -- filetype support for rust object notation (rom) language
-    lazy = true,
     event = 'BufReadPre *.ron',
   },
 }

@@ -4,7 +4,6 @@ return {
 
   {
     'nvim-tree/nvim-tree.lua',
-    lazy = true,
     dependencies = {
       'kyazdani42/nvim-web-devicons',
     },
@@ -98,7 +97,6 @@ return {
 
   {
     'nvim-telescope/telescope.nvim',
-    lazy = true,
     dependencies = {
       'ahmedkhalf/project.nvim',
     },
