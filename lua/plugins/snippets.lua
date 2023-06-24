@@ -114,7 +114,7 @@ return {
           },
           [types.insertNode] = {
             active = {
-              virt_text = { { '', 'GruvboxBlue' } },
+              virt_text = { { '󰁙', 'GruvboxBlue' } },
             },
           },
         },
