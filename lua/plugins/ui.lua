@@ -137,6 +137,7 @@ return {
 
   {
     'j-hui/fidget.nvim', -- fidget lsp progress
+    tag = "legacy",
     opts = {
       text = {
         spinner = 'dots',
