@@ -66,6 +66,7 @@ return {
       { '<Leader>gs', "<cmd>lua require 'gitsigns'.stage_hunk()<cr>",          desc = '[G]it: [S]tage Hunk' },
       { '<Leader>gu', "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",     desc = '[G]it: [U]ndo Stage Hunk' },
       { '<Leader>gd', "<cmd>lua require 'gitsigns'.diffthis()<cr>",            desc = '[G]it: [D]iff this buffer' },
+      { '<Leader>gl', "<cmd>lua require 'gitsigns'.toggle_linehl()<cr>",       desc = '[G]it: Toggle [L]ine Highlight' },
     },
     opts = {
       signs = {
@@ -76,6 +77,7 @@ return {
         changedelete = { hl = 'GitSignsChange', text = '▐', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
       },
       current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+      numhl = true,
       current_line_blame_opts = {
         virt_text = true,
         virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
