@@ -123,10 +123,11 @@ return {
 
   {
     'rcarriga/nvim-notify', -- Notification popups
+    enabled = false,
     lazy = false,
     keys = { { '<Leader>n', '<cmd>lua vim.notify.dismiss()<cr>', desc = 'Clear [N]otifications' } },
     config = function()
-      vim.notify = require('notify')
+      vim.notify = require('notify').setup({background_colour = '#000000',})
     end,
   },
 
@@ -141,6 +142,9 @@ return {
     opts = {
       text = {
         spinner = 'dots',
+      },
+      window = {
+        blend = 0,
       },
     },
   },

@@ -134,7 +134,6 @@ return {
           path_display = { 'truncate' },
         },
         extensions = {
-          telescope.load_extension('notify'),
           telescope.load_extension('projects'),
         },
       }
