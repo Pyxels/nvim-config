@@ -48,6 +48,13 @@ mason_lsp.setup_handlers({
       client.server_capabilities.documentFormattingProvider = false
       handler.on_attach(client, bufnr)
     end
-    lspconfig['volar'].setup({on_attach = custom_on_attach, capabilities = handler.capabilities})
+    lspconfig['volar'].setup({ on_attach = custom_on_attach, capabilities = handler.capabilities })
+  end,
+  ['tsserver'] = function()
+    local custom_on_attach = function(client, bufnr)
+      client.server_capabilities.documentFormattingProvider = false
+      handler.on_attach(client, bufnr)
+    end
+    lspconfig['tsserver'].setup({ on_attach = custom_on_attach, capabilities = handler.capabilities })
   end,
 })
