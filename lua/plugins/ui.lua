@@ -126,7 +126,7 @@ return {
   {
     'ziontee113/icon-picker.nvim',
     opts = {},
-    keys = { { '<Leader>si', '<cmd>IconPickerYank alt_font symbols nerd_font emoji<cr>', desc = '[S]earch [I]cons' } },
+    keys = { { '<Leader>si', '<cmd>IconPickerYank alt_font symbols nerd_font_v3 emoji<cr>', desc = '[S]earch [I]cons' } },
   },
 
   {
