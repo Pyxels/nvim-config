@@ -1,3 +1,6 @@
+> [!WARNING]
+> This is my old config. My new nix based config can be found at [github:pyxels/nixvim-config](https://github.com/pyxels/nixvim-config).
+
 # Pyxels Nvim PDE
 
 This setup was originally based on the [Neovim from scratch playlist by LunarVim](https://github.com/LunarVim/Neovim-from-scratch) and grew with time to fit my own needs.
